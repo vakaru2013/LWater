@@ -16,3 +16,4 @@ Feature2:
 ---------------
 
 portfolio.py can be used to print real time prices of all stocks in your portfolio.
+Install phantomjs first, http://phantomjs.org.
