@@ -10,16 +10,24 @@
 """
 
 from subprocess import call
-import mail.helper
 import re
 import time
 import os
+import datetime
+
+offseconds=30
 
 codes=['rt_hk01918','rt_hk21478','rt_hk00656','rt_hk03333','sh601318']
 
 while True:
+
+    startTime = time.time()
+
+    print datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y")
+    
     for code in codes:
         call(['phantomjs', 'printprice.js', code]);
     print '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
-    # sleep 60 seconds
-    time.sleep(60);
+
+    endTime = time.time()
+    time.sleep(max(offseconds - (endTime-startTime), 0));
